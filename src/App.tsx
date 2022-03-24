@@ -3,7 +3,6 @@ import {QueryClientProvider} from 'react-query';
 
 import {CssBaseline, ThemeProvider} from '@mui/material';
 import {Routes} from 'routes';
-import {AppProvider} from 'shared/context';
 import {queryClient} from 'shared/services/queryClient';
 import {theme} from 'shared/styles/theme';
 
@@ -11,10 +10,8 @@ const App: React.FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
-        <AppProvider>
-          <Routes />
-          <CssBaseline />
-        </AppProvider>
+        <Routes />
+        <CssBaseline />
       </ThemeProvider>
     </QueryClientProvider>
   );

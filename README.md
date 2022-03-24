@@ -25,3 +25,89 @@
 - Documentação
 - Interface
 - Testes
+
+# Telas
+
+![alt text](./src/shared/assets/screen01.png)
+
+![alt text](./src/shared/assets/screen02.png)
+
+# Scripts:
+
+### yarn
+
+```
+Instala dependências.
+```
+
+### yarn start
+
+```
+roda o projeto
+```
+
+### yarn test
+
+```
+roda os testes
+```
+
+# Stacks:
+
+`react `
+
+`typescript `
+
+`material-ui `
+
+`react-query `
+
+`axios `
+
+`Jest + React-testing-library`
+
+# Arquitetura:
+
+Criei o projeto através do create-react-app com o template do typescript. Dentro da pasta src foi onde alterei a arquitetura.
+
+## Pages:
+
+```
+Armazena todas as telas do projeto com o seus componentes.
+```
+
+## Routes
+
+```
+Local onde é definida as rotas do projeto.
+```
+
+## Shared/Assets:
+
+```
+Local onde fica todas as imagens do projeto.
+```
+
+## Shared/Components:
+
+```
+Local onde fica todos os components que podem ser usado em qualquer lugar da aplicação.
+```
+
+## Shared/Services:
+
+```
+Local onde configurei a minha chamada da api e criei os arquivos onde será feita as chamadas.
+```
+
+## Shared/Styles:
+
+```
+Local onde armazenarei o tema padrão e o layout base da aplicação.
+```
+
+## Shared/Utils:
+
+```
+Local onde armazenarei todas as funções que podem ser reaproveitadas no projeto.
+```

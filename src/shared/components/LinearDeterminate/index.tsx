@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 
-import {Box, LinearProgress} from '@mui/material';
+import {Box, LinearProgress, Typography} from '@mui/material';
 
 export const LinearDeterminate: React.FC = () => {
   const [progress, setProgress] = React.useState(0);
@@ -22,12 +22,25 @@ export const LinearDeterminate: React.FC = () => {
   }, []);
 
   return (
-    <Box sx={{width: '100%'}}>
+    <Box
+      width="100%"
+      display="flex"
+      justifyContent="space-between"
+      flexDirection="column"
+      gap={3}>
+      <Typography variant="h4" align="center">
+        ☀️ Desafio Técnico
+      </Typography>
+
       <LinearProgress
         variant="determinate"
         value={progress}
         sx={{height: 10, borderRadius: 5}}
       />
+
+      <Typography variant="h6" align="center">
+        Builders
+      </Typography>
     </Box>
   );
 };
