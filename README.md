@@ -28,9 +28,7 @@
 
 # Telas
 
-![alt text](./src/shared/assets/screen01.png)
-
-![alt text](./src/shared/assets/screen02.png)
+![Tela de loading](./src/shared/assets/screen01.png) \_\_\_ ![Tela principal](./src/shared/assets/screen02.png)
 
 # Scripts:
 
@@ -43,28 +41,28 @@ Instala dependências.
 ### yarn start
 
 ```
-roda o projeto
+roda o projeto.
 ```
 
 ### yarn test
 
 ```
-roda os testes
+roda os testes.
 ```
 
 # Stacks:
 
-`react `
+`react`
 
-`typescript `
+`typescript`
 
-`material-ui `
+`material-ui`
 
-`react-query `
+`react-query`
 
-`axios `
+`axios`
 
-`Jest + React-testing-library`
+`react-testing-library`
 
 # Arquitetura:
 

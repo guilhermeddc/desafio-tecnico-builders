@@ -1,3 +1,13 @@
 import {QueryClient} from 'react-query';
 
-export const queryClient = new QueryClient();
+import {feedback} from '../alertService';
+
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    mutations: {
+      onError: (error: any) => {
+        feedback(error.message, 'error');
+      },
+    },
+  },
+});
