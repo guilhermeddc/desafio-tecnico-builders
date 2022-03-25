@@ -20,7 +20,7 @@ export const DegreesComponent: React.FC<IProps> = ({temp}) => {
           display="flex"
           alignItems="center"
           justifyContent="center"
-          boxShadow={2}>
+          boxShadow={12}>
           <Typography
             variant="h1"
             align="center"

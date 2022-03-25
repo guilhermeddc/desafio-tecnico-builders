@@ -4,7 +4,7 @@ import {DegreesComponent} from '.';
 
 describe('DegreesComponent', () => {
   it('should render correctly', () => {
-    const {container} = render(<DegreesComponent temp={0} />);
+    const {container} = render(<DegreesComponent />);
 
     expect(container).toMatchSnapshot();
   });

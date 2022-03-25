@@ -1,9 +1,9 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {useQuery, useQueryClient} from 'react-query';
+import {useQueryClient} from 'react-query';
 
 import {Button, Divider, Fade, Grid, Stack} from '@mui/material';
-import {LinearDeterminate} from 'shared/components';
-import {weatherService} from 'shared/services/api/weatherService';
+import {ErrorPage, LinearDeterminate} from 'shared/components';
+import {useFetchWeather} from 'shared/hooks';
 
 import {
   DegreesComponent,
@@ -25,9 +25,9 @@ const Home: React.FC = () => {
     }
   }, [position.lat, position.lon]);
 
-  const {data, isLoading} = useQuery(
-    ['weather', position.lat, position.lon],
-    () => weatherService.getWeatherData(position.lat, position.lon),
+  const {data, isLoading, isError, error} = useFetchWeather(
+    position.lat,
+    position.lon,
   );
 
   const handleUpdateWeather = useCallback(() => {
@@ -38,6 +38,10 @@ const Home: React.FC = () => {
     return <LinearDeterminate />;
   }
 
+  if (isError) {
+    return <ErrorPage message={(error as {message: string}).message} />;
+  }
+
   return (
     <Fade in={!isLoading}>
       <Grid container spacing={4}>
@@ -45,7 +49,10 @@ const Home: React.FC = () => {
 
         <Grid item xs={12}>
           <Stack justifyContent="center" alignItems="center">
-            <Button onClick={handleUpdateWeather} size="large">
+            <Button
+              onClick={handleUpdateWeather}
+              size="large"
+              data-testid="update-button">
               Atualizar
             </Button>
           </Stack>

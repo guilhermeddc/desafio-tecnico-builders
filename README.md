@@ -92,6 +92,12 @@ Local onde fica todas as imagens do projeto.
 Local onde fica todos os components que podem ser usado em qualquer lugar da aplicação.
 ```
 
+## Shared/Hooks:
+
+```
+Local onde fica todos os hooks da aplicação.
+```
+
 ## Shared/Services:
 
 ```
