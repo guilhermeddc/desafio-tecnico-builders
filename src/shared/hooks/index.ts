@@ -1,1 +1,1 @@
-export * from './useFetchWeather';
+export * from './useFetchData';

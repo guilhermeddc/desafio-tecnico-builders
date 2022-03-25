@@ -1,19 +1,19 @@
 import {QueryClient, QueryClientProvider} from 'react-query';
 
 import {screen, render, waitFor} from '@testing-library/react';
-import {useFetchWeather} from 'shared/hooks';
+import {useFetchData} from 'shared/hooks';
 import {convertFahrenheitToCelsius} from 'shared/utils/convertFahrenheitToCelsius';
 import {convertMilesToKilometers} from 'shared/utils/convertMilesToKilometers';
 
 import Home from '.';
 
 jest.mock('shared/hooks', () => ({
-  useFetchWeather: jest.fn(),
+  useFetchData: jest.fn(),
 }));
 
 describe('Home', () => {
   beforeEach(() => {
-    useFetchWeather.mockImplementation(() => ({}));
+    useFetchData.mockImplementation(() => ({}));
   });
 
   describe('while loading', () => {
@@ -35,7 +35,7 @@ describe('Home', () => {
 
       global.navigator.geolocation = mockGeolocation;
 
-      useFetchWeather.mockImplementation(() => ({
+      useFetchData.mockImplementation(() => ({
         isLoading: true,
       }));
 
@@ -74,7 +74,7 @@ describe('Home', () => {
 
       global.navigator.geolocation = mockGeolocation;
 
-      useFetchWeather.mockImplementation(() => ({
+      useFetchData.mockImplementation(() => ({
         isLoading: false,
         isError: true,
         error: {message: 'Erro ao carregar dados da API'},
@@ -113,23 +113,29 @@ describe('Home', () => {
 
       global.navigator.geolocation = mockGeolocation;
 
-      useFetchWeather.mockImplementation(() => ({
+      useFetchData.mockImplementation(() => ({
         isLoading: false,
         data: {
-          weather: [
-            {
-              description: 'algumas nuvens',
+          address: {
+            locality: 'Nossa Senhora do Rosário, Santa Maria',
+            principalSubdivision: 'Rio Grande do Sul',
+          },
+          weather: {
+            weather: [
+              {
+                description: 'algumas nuvens',
+              },
+            ],
+            main: {
+              temp: 292.84,
+              humidity: 52,
             },
-          ],
-          main: {
-            temp: 292.84,
-            humidity: 52,
+            wind: {speed: 6.69},
+            sys: {
+              country: 'BR',
+            },
+            name: 'Santa Maria',
           },
-          wind: {speed: 6.69},
-          sys: {
-            country: 'BR',
-          },
-          name: 'Santa Maria',
         },
       }));
 
@@ -140,7 +146,9 @@ describe('Home', () => {
       );
 
       await waitFor(() => {
-        expect(container.innerHTML).toMatch('Santa Maria - BR');
+        expect(container.innerHTML).toMatch(
+          'Nossa Senhora do Rosário, Santa Maria, Rio Grande do Sul/BR',
+        );
         expect(container.innerHTML).toMatch('algumas nuvens');
         expect(container.innerHTML).toMatch(convertMilesToKilometers(6.69));
         expect(container.innerHTML).toMatch(convertFahrenheitToCelsius(292.84));

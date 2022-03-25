@@ -3,7 +3,7 @@ import {useQueryClient} from 'react-query';
 
 import {Button, Divider, Fade, Grid, Stack} from '@mui/material';
 import {ErrorPage, LinearDeterminate} from 'shared/components';
-import {useFetchWeather} from 'shared/hooks';
+import {useFetchData} from 'shared/hooks';
 
 import {
   DegreesComponent,
@@ -25,7 +25,7 @@ const Home: React.FC = () => {
     }
   }, [position.lat, position.lon]);
 
-  const {data, isLoading, isError, error} = useFetchWeather(
+  const {data, isLoading, isError, error} = useFetchData(
     position.lat,
     position.lon,
   );
@@ -45,7 +45,11 @@ const Home: React.FC = () => {
   return (
     <Fade in={!isLoading}>
       <Grid container spacing={4}>
-        <TitleComponent name={data?.name} country={data?.sys.country} />
+        <TitleComponent
+          locality={data?.address?.locality}
+          state={data?.address?.principalSubdivision}
+          country={data?.weather?.sys?.country}
+        />
 
         <Grid item xs={12}>
           <Stack justifyContent="center" alignItems="center">
@@ -58,17 +62,19 @@ const Home: React.FC = () => {
           </Stack>
         </Grid>
 
-        <DegreesComponent temp={data?.main.temp} />
+        <DegreesComponent temp={data?.weather?.main.temp} />
 
-        <DescriptionComponent description={data?.weather[0].description} />
+        <DescriptionComponent
+          description={data?.weather?.weather[0].description}
+        />
 
         <Grid item xs={12}>
           <Divider />
         </Grid>
 
         <InfoComponent
-          speed={data?.wind.speed}
-          humidity={data?.main.humidity}
+          speed={data?.weather?.wind.speed}
+          humidity={data?.weather?.main.humidity}
         />
       </Grid>
     </Fade>

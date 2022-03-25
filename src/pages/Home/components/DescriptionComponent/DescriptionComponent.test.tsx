@@ -8,6 +8,6 @@ describe('DescriptionComponent', () => {
       <DescriptionComponent description="Nuvens Dispersas" />,
     );
 
-    expect(container).toMatchSnapshot();
+    expect(container.innerHTML).toMatch('Nuvens Dispersas');
   });
 });
