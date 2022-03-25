@@ -15,6 +15,7 @@ describe('Home', () => {
   beforeEach(() => {
     useFetchWeather.mockImplementation(() => ({}));
   });
+
   describe('while loading', () => {
     it('renders a loader', async () => {
       const queryClient = new QueryClient();
@@ -76,7 +77,7 @@ describe('Home', () => {
       useFetchWeather.mockImplementation(() => ({
         isLoading: false,
         isError: true,
-        error: {message: 'Something went wrong'},
+        error: {message: 'Erro ao carregar dados da API'},
       }));
 
       render(
@@ -85,7 +86,7 @@ describe('Home', () => {
         </QueryClientProvider>,
       );
 
-      const errorMessage = screen.getByText('Error: Something went wrong');
+      const errorMessage = screen.getByText('Erro ao carregar dados da API');
 
       await waitFor(() => {
         expect(errorMessage).toBeInTheDocument();

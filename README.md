@@ -28,7 +28,23 @@
 
 # Telas
 
-![Tela de loading](./src/shared/assets/screen01.png) \_\_\_ ![Tela principal](./src/shared/assets/screen02.png)
+Ao entrar na aplicação ela ira pedir permissão de localização, após isso ira para a tela de loading.
+
+![Tela de loading](./src/shared/assets/screen01.png)
+
+Se de erro no fetching com a api vai para a tela de erro.
+
+![Tela de erro](./src/shared/assets/screen03.png)
+
+E se o fetching for com sucesso ira disponibilizar os dados na tela.
+
+![Tela principal](./src/shared/assets/screen02.png)
+
+```
+  - Os dados se atualizam automaticamente ao voltar o focus para a página
+  - Refetching com o botão atualizar.
+  - Design responsivo
+```
 
 # Scripts:
 

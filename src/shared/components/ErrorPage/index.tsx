@@ -11,7 +11,7 @@ export const ErrorPage: React.FC<IProps> = ({message}) => {
   return (
     <Box display="flex" justifyContent="center" alignItems="center" gap={1}>
       <ErrorRounded color="error" fontSize="large" />
-      <Typography variant="h6">Error: {message}</Typography>
+      <Typography variant="h6">{message}</Typography>
     </Box>
   );
 };

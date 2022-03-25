@@ -4,9 +4,9 @@ import {ErrorPage} from '.';
 
 describe('ErrorPage Component', () => {
   test('message', async () => {
-    render(<ErrorPage message="Method not implemented." />);
+    render(<ErrorPage message="Erro ao carregar dados da API" />);
 
-    const message = screen.getByText('Error: Method not implemented.');
+    const message = screen.getByText('Erro ao carregar dados da API');
 
     expect(message).toBeInTheDocument();
   });

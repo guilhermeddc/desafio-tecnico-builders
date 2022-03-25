@@ -39,7 +39,7 @@ const getWeatherData = async (
       return null;
     }
   } catch (error) {
-    throw new Error('Error getting weather data');
+    throw new Error('Erro ao carregar dados da API');
   }
 };
 
