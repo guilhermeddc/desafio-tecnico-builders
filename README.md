@@ -28,7 +28,7 @@
 
 # Link para o site
 
-[builder.guilhermeddc.com.br](https://builders.guilhermeddc.com.br/)
+[builders.guilhermeddc.com.br](https://builders.guilhermeddc.com.br/)
 
 # Telas
 
