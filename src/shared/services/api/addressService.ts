@@ -1,4 +1,4 @@
-import {apiBigDataCloud} from '../axiosConfig';
+import axios from 'axios';
 
 export interface IAddress {
   locality: string;
@@ -11,8 +11,8 @@ const getAddress = async (
 ): Promise<IAddress | null> => {
   try {
     if (lat && lon) {
-      const {data: response} = await apiBigDataCloud.get<IAddress>(
-        `reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=pt_br`,
+      const {data: response} = await axios.get<IAddress>(
+        `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=pt_br`,
       );
 
       return response;

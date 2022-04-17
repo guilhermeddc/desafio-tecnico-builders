@@ -12,11 +12,7 @@ module.exports = {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
   },
   collectCoverage: true,
-  collectCoverageFrom: [
-    'src/**/*.{tsx|ts}',
-    '!src/**/*.{d.ts,spec.tsx}',
-    '!src/shared/services/api/*.ts',
-  ],
+  collectCoverageFrom: ['src/**/*.{tsx|ts}', '!src/**/*.{d.ts,spec.tsx}'],
   coverageReporters: ['lcov', 'json'],
   setupFilesAfterEnv: ['@testing-library/react/cleanup-after-each'],
 };

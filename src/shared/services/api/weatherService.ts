@@ -1,4 +1,4 @@
-import {apiWeather} from '../axiosConfig';
+import axios from 'axios';
 
 export interface IWeather {
   weather: [
@@ -30,8 +30,8 @@ const getWeatherData = async (
 ): Promise<IWeather | null> => {
   try {
     if (lat && lon) {
-      const {data: response} = await apiWeather.get<IWeather>(
-        `/weather?lat=${lat}&lon=${lon}&lang=pt_br&appid=${process.env.REACT_APP_WEATHER_API_KEY}`,
+      const {data: response} = await axios.get<IWeather>(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=pt_br&appid=${process.env.REACT_APP_WEATHER_API_KEY}`,
       );
 
       return response;
