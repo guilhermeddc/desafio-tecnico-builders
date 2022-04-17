@@ -16,7 +16,7 @@ export const DegreesComponent: React.FC<IProps> = ({temp}) => {
           width={250}
           height={250}
           borderRadius={50}
-          bgcolor="#573acc"
+          bgcolor="primary.main"
           display="flex"
           alignItems="center"
           justifyContent="center"

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DegreesComponent should render correctly 1`] = `
+<div>
+  <div
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-13i4rnv-MuiGrid-root"
+  >
+    <div
+      class="MuiBox-root css-t81ctj"
+    >
+      <h1
+        class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter css-1rqqpl1-MuiTypography-root"
+      >
+        -273.15
+        ˚C
+      </h1>
+    </div>
+  </div>
+</div>
+`;

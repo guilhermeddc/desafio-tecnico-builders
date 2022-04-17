@@ -1,6 +1,6 @@
 import {QueryClient, QueryClientProvider} from 'react-query';
 
-import {screen, render, waitFor} from '@testing-library/react';
+import {screen, render, waitFor, fireEvent} from '@testing-library/react';
 import {useFetchData} from 'shared/hooks';
 import {convertFahrenheitToCelsius} from 'shared/utils/convertFahrenheitToCelsius';
 import {convertMilesToKilometers} from 'shared/utils/convertMilesToKilometers';
@@ -149,6 +149,7 @@ describe('Home', () => {
         expect(container.innerHTML).toMatch(
           'Nossa Senhora do Rosário, Santa Maria, Rio Grande do Sul/BR',
         );
+        fireEvent.click(screen.getByText('Atualizar'));
         expect(container.innerHTML).toMatch('algumas nuvens');
         expect(container.innerHTML).toMatch(convertMilesToKilometers(6.69));
         expect(container.innerHTML).toMatch(convertFahrenheitToCelsius(292.84));

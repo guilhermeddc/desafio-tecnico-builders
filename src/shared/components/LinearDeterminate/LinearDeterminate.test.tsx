@@ -6,10 +6,11 @@ describe('LinearDeterminate Component', () => {
   test('Title and subtitle', () => {
     render(<LinearDeterminate />);
 
-    const title = screen.getByText('☀️ Desafio Técnico');
-    const subtitle = screen.getByText('Builders');
-
-    expect(title).toBeInTheDocument();
-    expect(subtitle).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', {name: /☀️ desafio técnico/i}),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', {name: /builders/i}),
+    ).toBeInTheDocument();
   });
 });
