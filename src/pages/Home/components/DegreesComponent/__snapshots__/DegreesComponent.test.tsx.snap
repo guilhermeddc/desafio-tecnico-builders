@@ -8,12 +8,12 @@ exports[`DegreesComponent should render correctly 1`] = `
     <div
       class="MuiBox-root css-t81ctj"
     >
-      <h1
-        class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter css-1rqqpl1-MuiTypography-root"
+      <h2
+        class="MuiTypography-root MuiTypography-h2 MuiTypography-alignCenter css-1ofdcil-MuiTypography-root"
       >
         -273.15
         ˚C
-      </h1>
+      </h2>
     </div>
   </div>
 </div>
